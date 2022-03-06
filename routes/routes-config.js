@@ -1,6 +1,7 @@
-import contributeRoute from "./contibute.js";
+import contributeRoute from './contibute.js'
 
 function configureRoutes(app) {
-  app.use(contributeRoute);
+  app.use(contributeRoute)
 }
-export default configureRoutes;
+
+export default configureRoutes

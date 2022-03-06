@@ -13,5 +13,5 @@ configureRoutes(app)
 
 app.listen(5000, (err) => {
   if (err) console.error(err)
-  console.log('server start')
+  console.log('server started at port 5000')
 })
