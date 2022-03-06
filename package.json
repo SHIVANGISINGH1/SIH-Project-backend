@@ -1,4 +1,6 @@
 {
+  "main": "index.js",
+  "type": "module",
   "dependencies": {
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
