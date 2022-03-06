@@ -1,11 +1,11 @@
-import express from "express";
-import configureRoutes from "./routes/routes-config.js";
+import express from 'express'
+import configureRoutes from './routes/routes-config.js'
 
-const app = express();
+const app = express()
 
-configureRoutes(app);
+configureRoutes(app)
 
 app.listen(5000, (err) => {
-  console.log(err);
-  console.log("server start");
-});
+  if (err) console.error(err)
+  console.log('server start')
+})
