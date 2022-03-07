@@ -35,7 +35,33 @@ async function make() {
 
 make();
 
+const c2 = new Class({
+    standard: 12,
+    subjects: []
+})
 
+
+const q1 = new Question({
+    questionStatement: 'What is binding energy',
+    answer: 0,
+    options: [{0,'blala'}, {1,'fdff'}, {2, 'fsdf'} , {3, 'sdff'}];
+})
+
+q1.save()
+
+
+const s1 = new Subject({
+    name: 'Maths',
+    units: []
+})
+
+s1.save()
+
+const u1 = new Unit({
+    name: 'Atoms',
+    unitNumber: 12,
+    questions: []
+})
 
 
 

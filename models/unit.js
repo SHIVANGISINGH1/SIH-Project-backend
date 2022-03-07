@@ -7,7 +7,7 @@ const unitSchema = new mongoose.Schema({
         required: true
     },
 
-    index: {
+    unitNumber: {
         type: Number,
         required: true
     },

@@ -12,9 +12,14 @@ const questionSchema = new mongoose.Schema({
         type: Number
     },
 
-    options: {
-        type: Number
-    }
+    options:[ {
+        index: {
+            type: Number
+        },
+        statement: {
+            type: String
+        }
+    }]
 })
 
 const Question = mongoose.model('Question' , questionSchema);
