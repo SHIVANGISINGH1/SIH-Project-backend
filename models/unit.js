@@ -14,7 +14,7 @@ const unitSchema = new mongoose.Schema({
 
     questions: {
         type: [mongoose.Types.ObjectId],
-        ref: Question
+        ref: 'Question'
     }
 });
 

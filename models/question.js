@@ -1,4 +1,7 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import Subject from './subject.js';
+import Class from './class.js';
+import Unit from './unit.js';
 
 
 const questionSchema = new mongoose.Schema({
@@ -19,7 +22,22 @@ const questionSchema = new mongoose.Schema({
         statement: {
             type: String
         }
-    }]
+    }],
+
+    questionClass: {
+        type: [mongoose.Types.ObjectId],
+        ref: 'Class'
+    },
+
+    questionSubject: {
+        type: [mongoose.Types.ObjectId],
+        ref: 'Subject'
+    },
+
+    questionUnit: {
+        type: [mongoose.Types.ObjectId],
+        ref: 'Unit'
+    }
 })
 
 const Question = mongoose.model('Question' , questionSchema);

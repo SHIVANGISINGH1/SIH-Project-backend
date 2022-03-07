@@ -4,14 +4,15 @@ import Subject from './subject.js';
 const classSchema = new mongoose.Schema({
 
     standard: {
-        type: Number,
+        type: Number, //   
         required: true
     },
 
     subjects: {
         type: [mongoose.Types.ObjectId],
-        ref: Subject
+        ref: 'Subject'
     }
+    
     
 });
 

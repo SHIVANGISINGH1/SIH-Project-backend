@@ -10,7 +10,7 @@ const subjectSchema = new mongoose.Schema({
 
     units: {
         type: [mongoose.Types.ObjectId],
-        ref: Unit
+        ref: 'Unit'
     }
 })
 
