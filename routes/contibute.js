@@ -1,10 +1,10 @@
-import { Router } from "express";
+import { Router } from 'express'
 
-const router = Router();
+const router = Router()
 
-router.get("/api", (req, res) => {
-  res.send("api");
-});
+router.get('/api', (req, res) => {
+  res.send('api')
+})
 
-const contributeRoute = router;
-export default contributeRoute;
+const contributeRoute = router
+export default contributeRoute

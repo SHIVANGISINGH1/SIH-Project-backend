@@ -1,45 +1,45 @@
-import mongoose from 'mongoose';
-import Subject from './subject.js';
-import Class from './class.js';
-import Unit from './unit.js';
-
+import mongoose from 'mongoose'
+import Subject from './subject.js'
+import Class from './class.js'
+import Unit from './unit.js'
 
 const questionSchema = new mongoose.Schema({
-    
-    questionStatement: {
+  questionStatement: {
+    type: String,
+    required: true,
+  },
+
+  answer: {
+    type: Number,
+  },
+
+  options: [
+    {
+      index: {
+        type: Number,
+      },
+      statement: {
         type: String,
-        required: true
+      },
     },
+  ],
 
-    answer: {
-        type: Number
-    },
+  questionClass: {
+    type: [mongoose.Types.ObjectId],
+    ref: 'Class',
+  },
 
-    options:[ {
-        index: {
-            type: Number
-        },
-        statement: {
-            type: String
-        }
-    }],
+  questionSubject: {
+    type: [mongoose.Types.ObjectId],
+    ref: 'Subject',
+  },
 
-    questionClass: {
-        type: [mongoose.Types.ObjectId],
-        ref: 'Class'
-    },
-
-    questionSubject: {
-        type: [mongoose.Types.ObjectId],
-        ref: 'Subject'
-    },
-
-    questionUnit: {
-        type: [mongoose.Types.ObjectId],
-        ref: 'Unit'
-    }
+  questionUnit: {
+    type: [mongoose.Types.ObjectId],
+    ref: 'Unit',
+  },
 })
 
-const Question = mongoose.model('Question' , questionSchema);
+const Question = mongoose.model('Question', questionSchema)
 
-export default Question;
+export default Question

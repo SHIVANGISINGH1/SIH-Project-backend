@@ -1,22 +1,18 @@
 import mongoose from 'mongoose'
-import Subject from './subject.js';
+import Subject from './subject.js'
 
 const classSchema = new mongoose.Schema({
+  standard: {
+    type: Number, //
+    required: true,
+  },
 
-    standard: {
-        type: Number, //   
-        required: true
-    },
+  subjects: {
+    type: [mongoose.Types.ObjectId],
+    ref: 'Subject',
+  },
+})
 
-    subjects: {
-        type: [mongoose.Types.ObjectId],
-        ref: 'Subject'
-    }
-    
-    
-});
+const Class = mongoose.model('Class', classSchema)
 
-
-const Class = mongoose.model('Class' , classSchema);
-
-export default Class;
+export default Class
