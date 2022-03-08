@@ -1,5 +1,7 @@
 import { Router } from 'express'
 import { StatusCodes } from 'http-status-codes'
+import Question from '../models/question.js'
+import Unit from '../models/unit.js'
 import {
   validateQuestion,
   validateQuestionsQuery,
@@ -19,6 +21,21 @@ router.post('/api/question', async (req, res) => {
   if (!validateQuestion(req.body)) {
     res.status(StatusCodes.BAD_REQUEST).end()
     return
+  }
+  try {
+    const unit = await Unit.findById(req.body.unitId).exec()
+    const newQuestion = new Question({
+      questionStatement: req.body.questionStatement,
+      answer: req.body.answer,
+      options: req.body.options,
+    })
+    const newQuestionId = (await newQuestion.save()).id
+    unit.questions.push(newQuestionId)
+    unit.save()
+    res.send({ newQuestionId }).status(StatusCodes.CREATED).end()
+  } catch (error) {
+    console.error(error.message)
+    res.status(StatusCodes.BAD_REQUEST).end()
   }
 })
 

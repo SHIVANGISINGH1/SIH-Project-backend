@@ -26,10 +26,6 @@ router.get('/api/info/standard/:num', async (req, res) => {
   // return the asked standard with populated subjects and unit
   console.log(req.params.num)
   try {
-    console.log(
-      await Class.findOne({ standard: req.params.num })
-      //   .populate('subjects')
-    )
     const t = await Class.findOne({
       standard: req.params.num,
     }).populate({
@@ -37,7 +33,6 @@ router.get('/api/info/standard/:num', async (req, res) => {
       populate: {
         path: 'units',
       },
-      //   path: 'subjects.units',
     })
     res.send(t)
   } catch (error) {

@@ -13,31 +13,22 @@ const questionSchema = new mongoose.Schema({
     type: Number,
   },
 
-  options: [
-    {
-      index: {
-        type: Number,
-      },
-      statement: {
-        type: String,
-      },
-    },
-  ],
+  options: [String],
 
-  questionClass: {
-    type: mongoose.Types.ObjectId,
-    ref: 'Class',
-  },
+  //   questionClass: {
+  //     type: mongoose.Types.ObjectId,
+  //     ref: 'Class',
+  //   },
 
-  questionSubject: {
-    type: mongoose.Types.ObjectId,
-    ref: 'Subject',
-  },
+  //   questionSubject: {
+  //     type: mongoose.Types.ObjectId,
+  //     ref: 'Subject',
+  //   },
 
-  questionUnit: {
-    type: mongoose.Types.ObjectId,
-    ref: 'Unit',
-  }
+  //   questionUnit: {
+  //     type: mongoose.Types.ObjectId,
+  //     ref: 'Unit',
+  //   }
 })
 
 const Question = mongoose.model('Question', questionSchema)

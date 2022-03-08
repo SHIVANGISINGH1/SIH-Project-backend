@@ -1,9 +1,7 @@
 function validateQuestion(req) {
   return (
-    'standard' in req &&
-    'subject' in req &&
-    'unit' in req &&
-    'problemStatement' in req &&
+    'unitId' in req &&
+    'questionStatement' in req &&
     'options' in req &&
     'answer' in req &&
     req.options.length === 4
