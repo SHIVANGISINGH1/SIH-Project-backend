@@ -25,19 +25,19 @@ const questionSchema = new mongoose.Schema({
   ],
 
   questionClass: {
-    type: [mongoose.Types.ObjectId],
+    type: mongoose.Types.ObjectId,
     ref: 'Class',
   },
 
   questionSubject: {
-    type: [mongoose.Types.ObjectId],
+    type: mongoose.Types.ObjectId,
     ref: 'Subject',
   },
 
   questionUnit: {
-    type: [mongoose.Types.ObjectId],
+    type: mongoose.Types.ObjectId,
     ref: 'Unit',
-  },
+  }
 })
 
 const Question = mongoose.model('Question', questionSchema)

@@ -7,10 +7,12 @@ const classSchema = new mongoose.Schema({
     required: true,
   },
 
-  subjects: {
-    type: [mongoose.Types.ObjectId],
-    ref: 'Subject',
-  },
+  subjects: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: 'Subject',
+    },
+  ],
 })
 
 const Class = mongoose.model('Class', classSchema)
