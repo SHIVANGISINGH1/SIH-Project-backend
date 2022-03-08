@@ -9,7 +9,6 @@ const router = Router()
 
 router.get('/api/question', async (req, res) => {
   if ('id' in req.body) {
-    // search in questions db
     res.send().status(StatusCodes.OK).end()
     return
   }
