@@ -9,6 +9,8 @@ mongoose.connect(process.env.MONGODB_URL, () => {
   console.log('Connected to mongoDB')
 })
 
+app.use(express.json())
+
 configureRoutes(app)
 
 app.listen(5000, (err) => {
