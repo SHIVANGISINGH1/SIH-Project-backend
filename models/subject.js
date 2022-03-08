@@ -7,10 +7,12 @@ const subjectSchema = new mongoose.Schema({
     required: true,
   },
 
-  units: {
-    type: [mongoose.Types.ObjectId],
-    ref: 'Unit',
-  },
+  units: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: 'Unit',
+    },
+  ]
 })
 
 const Subject = mongoose.model('Subject', subjectSchema)
