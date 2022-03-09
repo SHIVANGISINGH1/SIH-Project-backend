@@ -10,7 +10,10 @@ import Class from './models/class.js'
 import Subject from './models/subject.js'
 import Unit from './models/unit.js'
 import Question from './models/question.js'
-
+// questions ke array ki list req body
+// findbyid -> question
+// map questionStatement: x.questionStatement,
+  //    options: x.options,
 
 // const inp = Class.insertMany([{
 //     standard: 10,

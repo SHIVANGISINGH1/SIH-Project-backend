@@ -12,12 +12,20 @@ const router = Router()
 
 router.get('/api/generate/question-paper', async (req, res) => {
   res.header('Content-Type: application/pdf')
-  const x = (await Question.find()).map((x) => {
+
+  const { questionArr } = req.body
+
+  const questions = questionArr.map((q) => {
+    return await Question.findById(q).exec()
+  })
+
+  const x = questions.map((x) => {
     return {
       questionStatement: x.questionStatement,
       options: x.options,
     }
   })
+
   const html = await renderFile(
     __dirname + '/../views/question-paper.ejs',
     {
