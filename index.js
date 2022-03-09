@@ -10,10 +10,7 @@ mongoose.connect(process.env.MONGODB_URL, () => {
 })
 
 app.use((req, res, next) => {
-  if (process.env.NODE_ENV === 'development') {
-    res.header('Access-Control-Allow-Origin', '*')
-  }
-  res.header('Access-Control-Allow-Origin', process.env.CLIENT_URL)
+  res.header('Access-Control-Allow-Origin', '*')
   next()
 })
 
