@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { StatusCodes } from 'http-status-codes'
 import Class from '../models/class.js'
+import Subject from '../models/subject.js'
 
 const router = Router()
 
@@ -40,7 +41,28 @@ router.get('/api/info/standard/:num', async (req, res) => {
   }
 })
 
-router.get('/api/info/subjects', (req, res) => {})
+//
+router.get('/api/info/subjects', async (req, res) => {
+  // standard num se subjects
+  // req.body num
+
+  const { standard } = req.body
+
+  try {
+    const c1 = await Class.findOne({ standard }).exec()
+    const subjects = c1.subjects
+    const displaySub = []
+
+    for (let idx = 0; idx < subjects.length; idx++) {
+      const s1 = await Subject.findById(subjects[idx]).exec()
+      displaySub.push({ name: s1.name, id: s1._id })
+    }
+
+    res.send({ subjects: displaySub })
+  } catch (err) {
+    console.log(err)
+  }
+})
 
 router.get('/api/info/units', (req, res) => {})
 

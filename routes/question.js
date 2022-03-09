@@ -2,6 +2,7 @@ import { Router } from 'express'
 import { StatusCodes } from 'http-status-codes'
 import Question from '../models/question.js'
 import Unit from '../models/unit.js'
+import Subject from '../models/subject.js'
 import {
   validateQuestion,
   validateQuestionsQuery,
@@ -43,6 +44,29 @@ router.get('/api/questions', async (req, res) => {
   if (!validateQuestionsQuery) {
     res.status(StatusCodes.BAD_REQUEST).end()
     return
+  } else {
+	  // unit wise krna hain isko
+    const { subject } = req.body
+
+	const s1 = await Subject.findById(subject).exec();
+	const units = s1.units;
+	const qArr = [];
+
+
+	for (let idx=0; idx<units.length; idx++) {
+		const u1 = await Unit.findById(units[idx]).exec();
+		const questions = u1.questions;
+		
+		for (let idx=0; idx<questions.length; idx++) {
+			const q1 = await Question.findById(questions[idx]).exec();
+			qArr.push({
+				question : q1.questionStatement,
+				questionId : q1.id
+			});
+		}
+	}
+
+	res.send({Questions: qArr});
   }
 })
 
