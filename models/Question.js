@@ -9,15 +9,15 @@ const questionSchema = new mongoose.Schema({
     type: Number,
   },
   options: [String],
-  Class: {
+  class: {
     type: mongoose.Types.ObjectId,
     ref: 'Class',
   },
-  Subject: {
+  subject: {
     type: mongoose.Types.ObjectId,
     ref: 'Subject',
   },
-  Unit: {
+  unit: {
     type: mongoose.Types.ObjectId,
     ref: 'Unit',
   },

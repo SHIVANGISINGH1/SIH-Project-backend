@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import Subject from './subject.js'
+import Subject from './Subject.js'
 
 const classSchema = new mongoose.Schema({
   standard: {

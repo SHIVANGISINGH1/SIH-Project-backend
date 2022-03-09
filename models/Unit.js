@@ -11,11 +11,11 @@ const unitSchema = new mongoose.Schema({
       ref: 'Question',
     },
   ],
-  Class: {
+  class: {
     type: mongoose.Types.ObjectId,
     ref: 'Class',
   },
-  Subject: {
+  subject: {
     type: mongoose.Types.ObjectId,
     ref: 'Subject',
   },
