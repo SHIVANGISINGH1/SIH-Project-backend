@@ -9,8 +9,6 @@ mongoose.connect(process.env.MONGODB_URL, () => {
   console.log('Connected to mongoDB')
 })
 
-console.log(process.env.NODE_ENV)
-
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   next()
