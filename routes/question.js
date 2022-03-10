@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { StatusCodes } from 'http-status-codes'
-import Question from '../models/question.js'
-import Unit from '../models/unit.js'
+import Question from '../models/Question.js'
+import Unit from '../models/Unit.js'
 import {
   validateQuestion,
   validateQuestionsQuery,

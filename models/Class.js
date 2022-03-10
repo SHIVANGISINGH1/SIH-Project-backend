@@ -6,7 +6,6 @@ const classSchema = new mongoose.Schema({
     type: Number, //
     required: true,
   },
-
   subjects: [
     {
       type: mongoose.Types.ObjectId,

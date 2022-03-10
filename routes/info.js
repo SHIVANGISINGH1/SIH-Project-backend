@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { StatusCodes } from 'http-status-codes'
-import Class from '../models/class.js'
+import Class from '../models/Class.js'
 
 const router = Router()
 
