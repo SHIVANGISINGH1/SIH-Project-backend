@@ -7,17 +7,12 @@ const unitSchema = new mongoose.Schema({
     required: true,
   },
 
-  unitNumber: {
-    type: Number,
-    required: true,
-  },
-
   questions: [
     {
       type: mongoose.Types.ObjectId,
       ref: 'Question',
     },
-  ]
+  ],
 })
 
 const Unit = mongoose.model('Unit', unitSchema)
