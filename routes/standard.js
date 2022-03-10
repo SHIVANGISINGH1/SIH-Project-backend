@@ -3,10 +3,10 @@ import Class from '../models/class.js'
 
 const router = Router()
 
-router.post('/api/standard', async (req, res) => {
+router.get('/api/standard/:id', async (req, res) => {
   // return the asked standard with populated subjects and unit
   try {
-    const t = await Class.findById(req.body.standardId).populate({
+    const t = await Class.findById(req.params.id).populate({
       path: 'subjects',
       populate: {
         path: 'units',
