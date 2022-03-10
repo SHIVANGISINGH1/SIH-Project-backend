@@ -40,7 +40,7 @@ router.post('/api/question', async (req, res) => {
   }
 })
 
-router.get('/api/questions', async (req, res) => {
+router.post('/api/questions/', async (req, res) => {
   if (!validateQuestionsQuery) {
     res.status(StatusCodes.BAD_REQUEST).end()
     return
@@ -61,6 +61,7 @@ router.get('/api/questions', async (req, res) => {
 			const q1 = await Question.findById(questions[idx]).exec();
 			qArr.push({
 				question : q1.questionStatement,
+        options: q1.options,
 				questionId : q1.id
 			});
 		}
@@ -72,3 +73,6 @@ router.get('/api/questions', async (req, res) => {
 
 const questionRoute = router
 export default questionRoute
+
+
+
