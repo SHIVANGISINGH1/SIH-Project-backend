@@ -2,7 +2,7 @@ import contributeRoute from './contibute.js'
 import infoRoute from './info.js'
 // import generatePDF from './pdf-generate.js'
 import questionRoute from './question.js'
-import standardRoute from './Standard.js'
+import standardRoute from './standard.js'
 
 function configureRoutes(app) {
   app.use(contributeRoute)
